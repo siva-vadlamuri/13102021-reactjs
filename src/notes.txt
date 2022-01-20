@@ -1,0 +1,2 @@
+Props : The shorthand of properties which we can pass thee data from one component to another component 
+--> They are immutable

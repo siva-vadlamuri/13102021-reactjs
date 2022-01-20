@@ -1,25 +1,120 @@
-import logo from './logo.svg';
-import './App.css';
+// There will two types of components
+// class component and functional component
+// import/ export
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+import React from "react";
+import Button from "./components/Button";
+import ContactUs from "./components/ContactUs/ContactUs";
+import Pagination from "./components/Pagination/Pagination";
+import Products from "./components/Products/Products";
+import UserGreetings from "./components/UserGreetings/UserGreetings";
+import Users from "./components/Users/Users";
+
+import styles from "./styles/App.module.css";
+
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      userData: [],
+    };
+    console.log("Constructor Called [App.js]");
+  }
+  // state = {
+
+  // }
+  static getDerivedStateFromProps(props, state) {
+    // do  sync up with the state
+    // dont never make a API call
+    console.log("GetDerivedState From Props [App.js]");
+    return {
+      props,
+    };
+  }
+  // myName = "React Js";
+
+  getUsersData = async () => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const data = await response.json();
+    console.log(data);
+    this.setState({ userData: data }, function () {
+      console.log(this.state);
+    });
+  };
+  componentDidMount() {
+    // You can make a Api call
+    this.getUsersData();
+  }
+  render() {
+    console.log("Render Method [App.js]");
+    console.log(this.state);
+    return (
+      <div>
+        <Pagination />
+        {/* <Users userData={this.state.userData} /> */}
+        {/* <h2
+          style={{
+            backgroundColor: "#00ff00",
+            color: "#fff",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          {this.myName}
+        </h2>
+        <div className={styles.App}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea odit et
+          animi modi optio quod inventore ducimus error dignissimos soluta.
+        </div>
+        <ContactUs /> */}
+        {/* <button></button> */}
+        {/* <Button title="Play store" />
+        <Button title="App Store" />
+        <Button title="Mi Store" /> */}
+        {/* <p className={styles.error}>Error Message</p>
+        <div className={styles.products__main}>
+          <Products
+            title="Apple Iphone 13 Pro"
+            price={120000}
+            desc="Apple I 13 was build with M13 chip"
+          />
+          <Products
+            title="Samsung Galaxy"
+            price={80000}
+            desc="Samsung galaxy is one of best mobile"
+          />
+          <Products
+            title="Samsung Galaxy"
+            price={80000}
+            desc="Samsung galaxy is one of best mobile"
+          />
+          <Products
+            title="Samsung Galaxy"
+            price={80000}
+            desc="Samsung galaxy is one of best mobile"
+          />
+          <Products
+            title="Samsung Galaxy"
+            price={80000}
+            desc="Samsung galaxy is one of best mobile"
+          />
+          <Products
+            title="Samsung Galaxy"
+            price={80000}
+            desc="Samsung galaxy is one of best mobile"
+          />
+          <Products
+            title="Samsung Galaxy"
+            price={80000}
+            desc="Samsung galaxy is one of best mobile"
+          />
+          <Products
+            title="Samsung Galaxy"
+            price={80000}
+            desc="Samsung galaxy is one of best mobile"
+          />
+        </div> */}
+        {/* <Users />
+        <UserGreetings /> */}
+      </div>
+    );
+  }
 }
-
-export default App;

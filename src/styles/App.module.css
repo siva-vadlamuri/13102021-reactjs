@@ -1,0 +1,20 @@
+.App {
+  background-color: #0000ff;
+  color: #fff;
+  text-align: center;
+}
+.products__main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.products__main > div {
+  border: 1px solid red;
+  padding: 10px;
+  margin-top: 10px;
+}
+.error {
+  color: red;
+  font-weight: bolder;
+}
