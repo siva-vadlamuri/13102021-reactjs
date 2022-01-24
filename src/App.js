@@ -5,10 +5,12 @@
 import React from "react";
 import Button from "./components/Button";
 import ContactUs from "./components/ContactUs/ContactUs";
+import { Header } from "./components/Header/Header";
 import Pagination from "./components/Pagination/Pagination";
 import Products from "./components/Products/Products";
 import UserGreetings from "./components/UserGreetings/UserGreetings";
 import Users from "./components/Users/Users";
+import { Router } from "./router/Router";
 
 import styles from "./styles/App.module.css";
 
@@ -50,7 +52,12 @@ export default class App extends React.Component {
     console.log(this.state);
     return (
       <div>
-        <Pagination />
+        {/* header */}
+        <Header />
+        <Router />
+        {/* router */}
+        {/* footer */}
+        {/* <Pagination /> */}
         {/* <Users userData={this.state.userData} /> */}
         {/* <h2
           style={{
