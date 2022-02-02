@@ -1,6 +1,7 @@
 import { useState } from "react";
 function Counter() {
   const [count, setCount] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   //   Dont call the hooks in class components
   // Dont call the hooks in loops,condtions,nested functions
   // if(count>2){
